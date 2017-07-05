@@ -1,0 +1,16 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: update aptitude repositories
+      apt:
+        update_cache=yes
+        upgrade=yes
+        force=yes
+      when: ansible_distribution == 'Debian'
+
+  roles:
+    - roles.install_tools
+
+#    - roles.install_node
+
